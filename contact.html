@@ -107,7 +107,10 @@
       max-width: 1100px;
       margin: 0 auto;
       padding: 20px;
+      text-align: left;
     }
+
+
 
     .section {
       padding: 50px 20px;
@@ -178,9 +181,90 @@
       padding: 50px 20px;
       text-align: center;
     }
+
+    .contact-info {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-info p {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  /* Form alignment */
+  .contact-form label, .contact-form input, .contact-form textarea, .contact-form button {
+    text-align: left;
+  }
+
+  .contact-form label {
+    margin-top: 10px;
+    display: block;
+  }
+    .contact-info h3 {
+      font-size: 1.5rem;
+      color: #0073e6;
+      margin-bottom: 15px;
+    }
+
+    .contact-info p {
+      font-size: 1rem;
+      margin: 5px 0;
+    }
+
+    .contact-form {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form h3 {
+      font-size: 1.5rem;
+      color: #0073e6;
+      margin-bottom: 15px;
+    }
+
+    .contact-form label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    .contact-form button {
+      display: inline-block;
+      background-color: #0073e6;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #005bb5;
+    }
   </style>
 </head>
- 
+
 <body>
   <!-- Header -->
   <header>
@@ -190,8 +274,8 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact Us</a></li>
       </ul>
     </nav>
   </header>
@@ -203,46 +287,56 @@
     <!-- <a href="services.html">Explore Our Services</a> -->
   </section>
 
- 
+
 
   <!-- About Us Section -->
-  <section class="section about">
+  <!-- <section class="section about">
     <div class="container">
       <h2>About Us</h2>
       <p>At BZNX Software Solutions, we are passionate about helping startups turn their vision into reality. We provide
         end-to-end solutions designed to overcome challenges, foster innovation, and create sustainable growth.</p>
       <a href="about.html" style="color: #0073e6; font-weight: bold;">Learn More</a>
     </div>
-  </section>
+  </section> -->
 
   <!-- Services Section -->
   <section class="section services">
     <div class="container">
-      <h2>Our Services</h2>
-      <p>Explore how we can help you transform your ideas into reality:</p>
-      <ul>
-        <li>
-          <strong>Business Strategy & Planning</strong>
-          Comprehensive strategies to guide your growth.
-        </li>
-        <li>
-          <strong>Branding & Identity</strong>
-          Stand out with a memorable brand presence.
-        </li>
-        <li>
-          <strong>Website & App Development</strong>
-          Scalable, user-friendly digital platforms.
-        </li>
-        <li>
-          <strong>Digital Marketing</strong>
-          Tailored campaigns to enhance visibility and ROI.
-        </li>
-        <li>
-          <strong>Technology Consulting</strong>
-          Expert advice to simplify complex challenges.
-        </li>
-      </ul>
+      <h2>Contact Us</h2>
+      <p>We would love to hear from you! Whether you have a question, a suggestion, or need assistance, feel free to
+        reach out to us using the details below or by filling out the contact form.</p>
+
+      <!-- Contact Information -->
+      <div class="contact-info">
+        <h3>Our Contact Details</h3>
+        <p><strong>Email:</strong> contact@bznxsolutions.com</p>
+        <p><strong>Phone:</strong> +1 234 567 890</p>
+        <p><strong>Address:</strong> 123 Startup Avenue, Innovation City, Country</p>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+        <form action="submit_contact_form.php" method="post">
+          <label for="name">Name:</label><br>
+          <input type="text" id="name" name="name" placeholder="Your Full Name" required><br>
+
+          <label for="email">Email:</label><br>
+          <input type="email" id="email" name="email" placeholder="Your Email Address" required><br>
+
+          <label for="subject">Subject:</label><br>
+          <input type="text" id="subject" name="subject" placeholder="Subject" required><br>
+
+          <label for="message">Message:</label><br>
+          <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea><br>
+
+          <button type="submit"
+            style="background: #0073e6; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Send
+            Message</button>
+        </form>
+      </div>
     </div>
+
   </section>
 
   <!-- Footer -->
