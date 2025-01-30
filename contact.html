@@ -250,9 +250,9 @@
       font-size: 1rem;
       box-sizing: border-box;
     }
- 
 
-  
+
+
     .contact-form button {
       display: inline-block;
       background-color: #0073e6;
@@ -269,43 +269,42 @@
       background-color: #005bb5;
     }
   </style>
-<script>
-  window.onload = function () {
-    var contactForm = document.getElementById("contactForm");
+  <script>
+    window.onload = function () {
+      var contactForm = document.getElementById("contactForm");
 
-    if (contactForm) {
-      contactForm.addEventListener("submit", function (event) {
-        event.preventDefault();
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (event) {
+          event.preventDefault();
 
-        var formData = new FormData(this);
+          var formData = new FormData(this);
 
-        var inquiryTypes = [];
-        document.querySelectorAll("input[name='entry.9876543210']:checked").forEach((checkbox) => {
-          inquiryTypes.push(checkbox.value);
+          var inquiryTypes = [];
+          document.querySelectorAll("input[name='entry.241318044']:checked").forEach((checkbox) => {
+            inquiryTypes.push(checkbox.value);
+          });
+
+          // Log the values being captured to the console
+          console.log(inquiryTypes); // Ensure that the inquiry types are logged correctly
+
+          // Append the manually collected checkbox values
+          formData.append("entry.241318044", inquiryTypes.join(", "));
+
+          fetch("https://docs.google.com/forms/u/0/d/e/1FAIpQLSfAUyWe5MijgvMQ_3hNP4PEL0b8emOO80GncitjcpEwZjoHyg/formResponse", {
+            method: "POST",
+            mode: "no-cors",
+            body: formData
+          }).then(() => {
+            alert("Message sent successfully, Team will contact you soon!");
+            contactForm.reset();
+            window.location.href = "contact.html";
+          }).catch(() => {
+            alert("Failed to send message. Try again later.");
+          });
         });
-
-        // Append the manually collected checkbox values
-        formData.append("entry.9876543210", inquiryTypes.join(", "));
-
-
-        console.log(formData); // Fixed "console.log" syntax
-
-        fetch("https://docs.google.com/forms/u/0/d/e/1FAIpQLSfAUyWe5MijgvMQ_3hNP4PEL0b8emOO80GncitjcpEwZjoHyg/formResponse", {
-          method: "POST",
-          mode: "no-cors",
-          body: formData
-        }).then(() => {
-          alert("Message sent successfully, Team will contact you soon!");
-          contactForm.reset();
-          window.location.href = "contact.html";
-        }).catch(() => {
-          alert("Failed to send message. Try again later.");
-        });
-      });
-    }
-  };
-</script>
-
+      }
+    };
+  </script>
 </head>
 
 <body>
@@ -327,20 +326,13 @@
   <section class="hero">
     <h1>Welcome to BZNX Software Solutions</h1>
     <p>We Empower Startups to Succeed with Tailored Solutions and Expert Support</p>
-    
+
   </section>
 
 
 
   <!-- About Us Section -->
-  <!-- <section class="section about">
-    <div class="container">
-      <h2>About Us</h2>
-      <p>At BZNX Software Solutions, we are passionate about helping startups turn their vision into reality. We provide
-        end-to-end solutions designed to overcome challenges, foster innovation, and create sustainable growth.</p>
-      <a href="about.html" style="color: #0073e6; font-weight: bold;">Learn More</a>
-    </div>
-  </section> -->
+
 
   <!-- Services Section -->
   <section class="section services">
@@ -360,56 +352,72 @@
       <div class="contact-form">
         <h3>Send Us Inquiry</h3>
         <form id="contactForm" method="post">
-            
-            <!-- Inquiry Type -->
-            <label for="inquiryType">Inquiry Type:</label><br>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; align-items: center;">
-                <div style="display: flex; align-items: center; gap: 5px;">
+
+          <!-- Inquiry Type -->
+          <label for="inquiryType">Inquiry Type:</label><br>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; align-items: center;">
+            <!-- <div style="display: flex; align-items: center; gap: 5px;">
                     <input type="checkbox" style="width: 30px; margin: 0px; " id="webDev" name="entry.9876543210" value="Web Development">
                     <span for="webDev" style="padding: 0xp;  align-items: baseline;"">Web Development With Mirco Service</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: 5px;">
-                    <input type="checkbox" style="width: 30px; margin: 0px; " id="webDesign" name="entry.9876543210" value="Website Design">
-                    <span for="webDesign">Website Design</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: 5px;">
-                    <input type="checkbox" style="width: 30px; margin: 0px; " id="devOps" name="entry.9876543210" value="DevOps CI/CD">
-                    <span for="devOps">DevOps CI/CD</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: 5px;">
-                    <input type="checkbox" style="width: 30px; margin: 0px; " id="ictProject" name="entry.9876543210" value="ICT Project">
-                    <span for="ictProject">ICT Project</span>
-                </div>
-                <div style="display: flex; align-items: center;  gap: 5px;">
-                    <input type="checkbox" style="width: 30px;margin: 0px; " id="databaseSolutions" name="entry.9876543210" value="Database Solutions">
-                    <span for="databaseSolutions">Database Solutions</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: 5px;">
-                    <input type="checkbox" style="width: 30px; margin: 0px; " id="seoSolution" name="entry.9876543210" value="SEO Solution">
-                    <span for="seoSolution">SEO Solution</span>
-                </div>
+                </div> -->
+
+            <div style="display: flex; align-items: center; gap: 5px;">
+              <input type="checkbox" style="width: 30px; margin: 0px; " id="webDev" name="entry.241318044"
+                value="Web Development">
+              <span for="webDev" style="padding: 0xp; align-items: baseline;">Web Development With Micro Service</span>
             </div>
-            <br>
-    
-            <!-- Name Field -->
-            <label for="name">Name:</label><br>
-            <input type="text" name="entry.1098789562" id="entry.1098789562" placeholder="Your Full Name" required><br>
-    
-            <!-- Email Field -->
-            <label for="email">Email:</label><br>
-            <input type="email" id="entry.1769044411" name="entry.1769044411" placeholder="Your Email Address" required><br>
-    
-            <!-- Message Field -->
-            <label for="message">Message:</label><br>
-            <textarea id="entry.1132641001" name="entry.1132641001" placeholder="Your Message" rows="5" required></textarea><br>
-    
-            <!-- Submit Button -->
-            <button type="submit" style="background: #0073e6; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
-                Send Message
-            </button>
+
+
+            <div style="display: flex; align-items: center; gap: 5px;">
+              <input type="checkbox" style="width: 30px; margin: 0px; " id="webDesign" name="entry.241318044"
+                value="Website Design">
+              <span for="webDesign">Website Design</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 5px;">
+              <input type="checkbox" style="width: 30px; margin: 0px; " id="devOps" name="entry.241318044"
+                value="DevOps CI/CD">
+              <span for="devOps">DevOps CI/CD</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 5px;">
+              <input type="checkbox" style="width: 30px; margin: 0px; " id="ictProject" name="entry.241318044"
+                value="ICT Project">
+              <span for="ictProject">ICT Project</span>
+            </div>
+            <div style="display: flex; align-items: center;  gap: 5px;">
+              <input type="checkbox" style="width: 30px;margin: 0px; " id="databaseSolutions" name="entry.241318044"
+                value="Database Solutions">
+              <span for="databaseSolutions">Database Solutions</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 5px;">
+              <input type="checkbox" style="width: 30px; margin: 0px; " id="seoSolution" name="entry.241318044"
+                value="SEO Solution">
+              <span for="seoSolution">SEO Solution</span>
+            </div>
+          </div>
+          <br>
+
+          <!-- Name Field -->
+          <label for="name">Name:</label><br>
+          <input type="text" name="entry.1098789562" id="entry.1098789562" placeholder="Your Full Name" required><br>
+
+          <!-- Email Field -->
+          <label for="email">Email:</label><br>
+          <input type="email" id="entry.1769044411" name="entry.1769044411" placeholder="Your Email Address"
+            required><br>
+
+          <!-- Message Field -->
+          <label for="message">Message:</label><br>
+          <textarea id="entry.1132641001" name="entry.1132641001" placeholder="Your Message" rows="5"
+            required></textarea><br>
+
+          <!-- Submit Button -->
+          <button type="submit"
+            style="background: #0073e6; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+            Send Message
+          </button>
         </form>
-    </div>
-      
+      </div>
+
     </div>
 
   </section>
