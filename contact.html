@@ -279,6 +279,15 @@
 
         var formData = new FormData(this);
 
+        var inquiryTypes = [];
+        document.querySelectorAll("input[name='entry.9876543210']:checked").forEach((checkbox) => {
+          inquiryTypes.push(checkbox.value);
+        });
+
+        // Append the manually collected checkbox values
+        formData.append("entry.9876543210", inquiryTypes.join(", "));
+
+
         console.log(formData); // Fixed "console.log" syntax
 
         fetch("https://docs.google.com/forms/u/0/d/e/1FAIpQLSfAUyWe5MijgvMQ_3hNP4PEL0b8emOO80GncitjcpEwZjoHyg/formResponse", {
