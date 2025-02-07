@@ -1,0 +1,2 @@
+User-agent: *
+Disallow: /github.com/gitvijay158/bznx/
